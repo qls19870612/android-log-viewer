@@ -149,11 +149,11 @@ public class FilterFromDialog implements ColoringFilter {
             commaJoiner.appendTo(builder, pids);
         }
         if (apps != null && !apps.isEmpty()) {
-            builder.append("<br>App names like: ");
+            builder.append("<br>App: ");
             commaJoiner.appendTo(builder, apps);
         }
         if (messagePattern != null && !messagePattern.isEmpty()) {
-            builder.append("<br>Message text like: ").append(messagePattern);
+            builder.append("<br>Message: ").append(messagePattern);
         }
         if (priority != null && priority != LogRecord.Priority.LOWEST) {
             builder.append("<br>Priority>=").append(priority);

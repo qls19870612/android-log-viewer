@@ -19,19 +19,19 @@ public enum FilteringMode {
     /**
      * Show only matching records.
      */
-    SHOW("Show only matching lines", true),
+    SHOW("ShowOnlyMatching", true),
     /**
      * Hide matching records.
      */
-    HIDE("Hide matching lines", false),
+    HIDE("HideMatching", false),
     /**
      * Highlight matching records.
      */
-    HIGHLIGHT("Highlight matching lines", false),
+    HIGHLIGHT("HighlightMatching", false),
     /**
      * Show separate window with search results.
      */
-    WINDOW("Show index window", false);
+    WINDOW("ShowIndexWindow", false);
 
     private final String description;
     private final boolean defaultResult;

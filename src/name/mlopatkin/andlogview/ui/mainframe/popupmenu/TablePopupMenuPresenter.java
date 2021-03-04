@@ -61,7 +61,7 @@ public class TablePopupMenuPresenter extends PopupMenuPresenter<TablePopupMenuPr
 
     private static final Logger logger = Logger.getLogger(TablePopupMenuPresenter.class);
 
-    private static final char ELLIPSIS = '\u2026';  // …
+    private static final char ELLIPSIS = '\u2026';  //
 
     private final BookmarkModel bookmarkModel;
     private final MenuFilterCreator filterCreator;

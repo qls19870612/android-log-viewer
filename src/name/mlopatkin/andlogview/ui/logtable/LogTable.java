@@ -32,7 +32,7 @@ class LogTable extends DecoratingRendererTable implements LogModelFilter.Observe
 
     private LogTable(LogRecordTableModel dataModel, LogModelFilter filterModel) {
         this.filterModel = filterModel;
-
+        setRowHeight(18);
         addDecorator(new PriorityColoredCellRenderer());
         addDecorator(new RowHighlightRenderer(filterModel));
 

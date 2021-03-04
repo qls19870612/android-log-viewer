@@ -35,7 +35,7 @@ import javax.swing.JMenu;
 public class TablePopupMenuViewImpl extends PopupMenuViewImpl implements TablePopupMenuPresenter.TablePopupMenuView {
     private static final int MAX_HEADER_LENGTH = 30;
     private static final int PREFIX_LENGTH = 5;
-    private static final char ELLIPSIS = '\u2026';  // …
+    private static final char ELLIPSIS = '\u2026';
 
     private final ObservableAction bookmarkAction = new ObservableAction();
     private final ObservableAction quickFilterDialogAction = new ObservableAction();
