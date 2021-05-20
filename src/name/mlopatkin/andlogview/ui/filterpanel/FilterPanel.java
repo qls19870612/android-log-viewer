@@ -41,7 +41,7 @@ import javax.swing.JPopupMenu;
 import javax.swing.JToggleButton;
 
 public class FilterPanel extends FilterPanelUi implements FilterPanelModel.FilterPanelModelListener {
-    private static final ImageIcon FILTER_ICON = null;//new ImageIcon(Icons.FILTER.getUrl());
+    private static final ImageIcon FILTER_ICON = null; //new ImageIcon(Icons.FILTER.getUrl());
     private static final ImageIcon ADD_ICON = new ImageIcon(Icons.ADD.getUrl());
     private static final ImageIcon NEXT_ICON = new ImageIcon(Icons.NEXT.getUrl());
     private static final ImageIcon PREV_ICON = new ImageIcon(Icons.PREVIOUS.getUrl());

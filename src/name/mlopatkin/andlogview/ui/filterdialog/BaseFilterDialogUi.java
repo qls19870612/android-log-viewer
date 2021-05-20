@@ -21,15 +21,10 @@ import name.mlopatkin.andlogview.liblogcat.LogRecord;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.Frame;
+import java.awt.event.FocusEvent;
 
-import javax.swing.GroupLayout;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.LayoutStyle;
+
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 /**
@@ -114,16 +109,17 @@ class BaseFilterDialogUi extends JDialog {
                 gl_contentPanel.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(
                                 gl_contentPanel.createSequentialGroup()
-                                        .addComponent(lblNewLabel)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(tagTextField, GroupLayout.PREFERRED_SIZE,
-                                                GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lblMessageTextTo)
                                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(messageTextField, GroupLayout.PREFERRED_SIZE,
                                                 GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(lblNewLabel)
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(tagTextField, GroupLayout.PREFERRED_SIZE,
+                                                GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+
                                         .addComponent(lblPidsToFilter)
                                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(pidTextField, GroupLayout.PREFERRED_SIZE,
@@ -162,6 +158,7 @@ class BaseFilterDialogUi extends JDialog {
             cancelButton = new JButton("Cancel");
             buttonPane.add(cancelButton);
         }
+
         pack();
         setLocationRelativeTo(getParent());
     }

@@ -16,13 +16,13 @@
 
 plugins {
     id 'java'
-    id 'checkstyle'
+//    id 'checkstyle'
     id 'idea'
     id 'application'
     id 'com.github.johnrengelman.shadow'
     id 'net.ltgt.errorprone'
 
-    id 'name.mlopatkin.bitbucket'
+//    id 'name.mlopatkin.bitbucket'
     id 'com.diffplug.eclipse.apt'
     id 'me.champeau.gradle.jmh'
 }
@@ -65,13 +65,13 @@ dependencies {
 import name.mlopatkin.andlogview.building.BuildEnvironment
 import name.mlopatkin.andlogview.building.GenerateBuildMetadata
 
-checkstyle {
-    toolVersion = '8.12'
-}
+//checkstyle {
+//    toolVersion = '8.12'
+//}
 
 applicationName = 'andlogview'
 version = '0.21' + (BuildEnvironment.isSnapshotBuild() ? '-SNAPSHOT' : '')
-
+version = "0.22"
 mainClassName = 'name.mlopatkin.andlogview.Main'
 
 def javaVersion = JavaVersion.VERSION_1_8
@@ -225,16 +225,16 @@ shadowJar {
     }
 }
 
-bitbucket {
-    repository = 'android-log-viewer'
-    username = project.hasProperty('bitbucket.user') ? project.property('bitbucket.user') : System.getenv('BITBUCKET_USER')
-    applicationPassword = project.hasProperty('bitbucket.password') ? project.property('bitbucket.password') : System.getenv('BITBUCKET_PASSWORD')
-}
-
-bitbucketUpload {
-    dependsOn shadowDistZip
-    fileToUpload = shadowDistZip.archivePath
-}
+//bitbucket {
+//    repository = 'android-log-viewer'
+//    username = project.hasProperty('bitbucket.user') ? project.property('bitbucket.user') : System.getenv('BITBUCKET_USER')
+//    applicationPassword = project.hasProperty('bitbucket.password') ? project.property('bitbucket.password') : System.getenv('BITBUCKET_PASSWORD')
+//}
+//
+//bitbucketUpload {
+//    dependsOn shadowDistZip
+//    fileToUpload = shadowDistZip.archivePath
+//}
 
 jmh {
     humanOutputFile = project.file("${project.buildDir}/reports/jmh/human.txt")

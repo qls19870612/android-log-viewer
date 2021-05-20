@@ -145,7 +145,7 @@ public class FilterFromDialog implements ColoringFilter {
             commaJoiner.appendTo(builder, tags);
         }
         if (pids != null && !pids.isEmpty()) {
-            builder.append("<br>PIDs: ");
+            builder.append("<br>PID: ");
             commaJoiner.appendTo(builder, pids);
         }
         if (apps != null && !apps.isEmpty()) {
@@ -153,10 +153,10 @@ public class FilterFromDialog implements ColoringFilter {
             commaJoiner.appendTo(builder, apps);
         }
         if (messagePattern != null && !messagePattern.isEmpty()) {
-            builder.append("<br>Message: ").append(messagePattern);
+            builder.append("<br>Msg: ").append(messagePattern);
         }
         if (priority != null && priority != LogRecord.Priority.LOWEST) {
-            builder.append("<br>Priority>=").append(priority);
+            builder.append("<br>Level>=").append(priority);
         }
         return builder.append("</html>").toString();
     }

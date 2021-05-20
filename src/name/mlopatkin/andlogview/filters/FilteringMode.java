@@ -19,19 +19,19 @@ public enum FilteringMode {
     /**
      * Show only matching records.
      */
-    SHOW("ShowOnlyMatching", true),
+    SHOW("OnlyMatch", true),
     /**
      * Hide matching records.
      */
-    HIDE("HideMatching", false),
+    HIDE("HideMatch", false),
     /**
      * Highlight matching records.
      */
-    HIGHLIGHT("HighlightMatching", false),
+    HIGHLIGHT("Highlight", false),
     /**
      * Show separate window with search results.
      */
-    WINDOW("ShowIndexWindow", false);
+    WINDOW("IndexWindow", false);
 
     private final String description;
     private final boolean defaultResult;
@@ -58,6 +58,6 @@ public enum FilteringMode {
     }
 
     public static FilteringMode getDefaultMode() {
-        return HIGHLIGHT;
+        return SHOW;
     }
 }
