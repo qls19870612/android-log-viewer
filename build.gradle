@@ -87,6 +87,7 @@ sourceSets {
             srcDirs = []
             srcDir 'src'
             srcDir metadataBuildDir
+            srcDir "$buildDir/generated/sources/annotationProcessor/java/main"
         }
         resources {
             srcDirs = []
