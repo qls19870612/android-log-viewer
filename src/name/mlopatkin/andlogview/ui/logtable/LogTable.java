@@ -16,10 +16,17 @@
 
 package name.mlopatkin.andlogview.ui.logtable;
 
+import com.sun.org.slf4j.internal.Logger;
+import com.sun.org.slf4j.internal.LoggerFactory;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+
 import name.mlopatkin.andlogview.PriorityColoredCellRenderer;
 import name.mlopatkin.andlogview.widgets.DecoratingRendererTable;
 import name.mlopatkin.andlogview.widgets.SortingDisableSorter;
 
+import javax.swing.AbstractAction;
 import javax.swing.RowFilter;
 
 /**
@@ -27,6 +34,7 @@ import javax.swing.RowFilter;
  */
 @LogTableScoped
 class LogTable extends DecoratingRendererTable implements LogModelFilter.Observer {
+    private static final Logger logger = LoggerFactory.getLogger(LogTable.class);
     private final LogModelFilter filterModel;
     private final SortingDisableSorter<LogRecordTableModel> sorter;
 
@@ -48,6 +56,13 @@ class LogTable extends DecoratingRendererTable implements LogModelFilter.Observe
 
         sorter.setRowFilter(rowFilter);
         setRowSorter(sorter);
+        getActionMap().put("copyCol", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+                logger.debug("actionPerformed e:{}", e);
+            }
+        });
     }
 
     @Override

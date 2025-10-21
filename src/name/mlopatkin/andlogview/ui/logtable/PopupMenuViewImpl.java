@@ -16,6 +16,11 @@
 
 package name.mlopatkin.andlogview.ui.logtable;
 
+import org.checkerframework.checker.nullness.qual.Nullable;
+
+import name.mlopatkin.andlogview.liblogcat.LogRecord;
+import name.mlopatkin.andlogview.ui.logtable.menus.CopyColAction;
+import name.mlopatkin.andlogview.ui.logtable.menus.CopyUrlAction;
 import name.mlopatkin.andlogview.widgets.UiHelper;
 
 import javax.swing.Action;
@@ -32,6 +37,8 @@ public class PopupMenuViewImpl implements PopupMenuPresenter.PopupMenuView {
 
     protected final JPopupMenu popupMenu = new JPopupMenu();
     private final Action copyAction;
+    private final CopyColAction copyColAction;
+    private final CopyUrlAction copyURLAction;
 
     public PopupMenuViewImpl(JComponent owner, int x, int y) {
         this.owner = owner;
@@ -39,6 +46,9 @@ public class PopupMenuViewImpl implements PopupMenuPresenter.PopupMenuView {
         this.y = y;
 
         copyAction = UiHelper.createActionWrapper(owner, "copy", "Copy row", "control C");
+        copyColAction = new CopyColAction("Copy Cell","shift C");
+        
+        copyURLAction = new CopyUrlAction("Copy URL","alt C");
     }
 
     @Override
@@ -49,7 +59,28 @@ public class PopupMenuViewImpl implements PopupMenuPresenter.PopupMenuView {
         }
         popupMenu.add(copyAction);
     }
-
+    
+    @Override
+    public void setCopyColActionEnabled(Column c, @Nullable TableRow row) {
+        if (row == null) {
+            return;
+        }
+        copyColAction.setEnabled(c.getValue(row.getRowIndex(),row.getRecord())!=null);
+        copyColAction.setMouseData(c,row);
+        popupMenu.add(copyColAction);
+    }
+    
+    
+    @Override
+    public void setCopyURLActionEnabled(Column c, @Nullable TableRow row) {
+        if (row == null) {
+            return;
+        }
+        copyURLAction.setEnabled(c.getValue(row.getRowIndex(),row.getRecord())!=null);
+        copyURLAction.setMouseData(c,row);
+        popupMenu.add(copyURLAction);
+    }
+    
     @Override
     public void show() {
         popupMenu.show(owner, x, y);

@@ -18,6 +18,9 @@ package name.mlopatkin.andlogview.ui.logtable;
 
 import com.google.common.collect.ImmutableList;
 
+import com.sun.org.slf4j.internal.Logger;
+import com.sun.org.slf4j.internal.LoggerFactory;
+
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.List;
@@ -28,6 +31,7 @@ import javax.inject.Inject;
  * Basic presenter for popup menu of table items. It provides only "Copy" command.
  */
 public class PopupMenuPresenter<T extends PopupMenuPresenter.PopupMenuView> {
+    private static final Logger logger = LoggerFactory.getLogger(PopupMenuPresenter.class);
     /**
      * Interface for Presenter to talk to View. As a general rule, action is not shown at all if the corresponding
      * setter method wasn't called.
@@ -39,6 +43,8 @@ public class PopupMenuPresenter<T extends PopupMenuPresenter.PopupMenuView> {
          * @param enabled if menu item for copy should be enabled or disabled
          */
         void setCopyActionEnabled(boolean enabled);
+        default void setCopyColActionEnabled(Column c, @Nullable TableRow row){};
+        default void setCopyURLActionEnabled(Column c, @Nullable TableRow row){};
 
         /**
          * Opens popup menu.
@@ -64,7 +70,13 @@ public class PopupMenuPresenter<T extends PopupMenuPresenter.PopupMenuView> {
      *         it.
      */
     protected void configureMenu(T view, Column c, @Nullable TableRow row, List<TableRow> selection) {
-        view.setCopyActionEnabled(!selection.isEmpty());
+        final boolean enabled = !selection.isEmpty();
+        view.setCopyActionEnabled(enabled);
+        
+        
+        view.setCopyColActionEnabled(c,row);
+        view.setCopyURLActionEnabled(c,row);
+        
     }
 
     /**
